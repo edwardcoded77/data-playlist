@@ -5,22 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>My Playlist</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2.1.1/css/pico.classless.min.css">
+    <link rel="stylesheet" href="./css/card.css">
+    <link rel="stylesheet" href="./css/style.css">
   </head>
   <body>
     <main>
-      <h1>My Playlist</h1>
-      <p>Songs from the top 50.</p>
-      <button type="button" id="song-button">Get a Track</button>
-    </main>
-    <!-- <div class="card">
-      <h1 id="track-name-1"></h1>
-      <p id="artist-1"></p>
-    </div> -->
+        <h1 id="head-playlist">My Playlist</h1>
+        <p id="par-id">Discover new tracks for your playlist</p>
+        <button  type="button" id="song-button">Find a track</button>
+       
+       <!-- <input id="input-id" type="text" placeholder="Find an artist">
+       <button type="button" id="search-button">Click</button> -->
+   
+      <div class="card">
+          <h2 id="track-name">Track Name</h2>
+          <p id="artist-name">Artist Name</p>
+      </div>
+           
+        <div class="nextbak">
+          <button id="back-button" type="button">Back</button>
+          <button id="next-button" type="button">Next</button>
+          
+        </div>
+      
+        <p id="track-count"></p>
 
-     <article class="card">
-      <h1 id="track-name-1"></h1>
-      <p id="artist-1"></p>
-     </article>
+     <!-- <p>
+        <a href="cats.html">Go to CatList</a>
+      </p> -->
+    </main>
     <script src="script.js"></script>
   </body>
 </html>

@@ -1,30 +1,175 @@
 console.log("Hello World!");
 
-
- let artistDisplay1 = document.getElementById("artist-1");
- let trackNameDisplay1 = document.getElementById("track-name-1");
+ let artistDisplay1 = document.getElementById("artist-name");
+ let trackNameDisplay1 = document.getElementById("track-name");
  let songButton = document.getElementById("song-button");
+ let nextBtn = document.getElementById("next-button");
+ let prevBtn = document.getElementById("back-button");
+ let trackCount = document.getElementById("track-count");
+ 
+// declare song variable
+let songs = [];
+
+// Add counter variable
+let index = 0;
+
 
 
  async function loadSongs() {
-  let response = await fetch("https://student-data-api.edwardolagunju25.workers.dev/api/v1/datasets/viral-50-usa/records?limit=10");
+  let response = await fetch("https://student-data-api.edwardolagunju25.workers.dev/api/v1/datasets/viral-50-usa/records?limit=50");
   let data = await response.json();
-  let songs = data.records;
+  songs = data.records;
 
-   console.log(songs);
-   console.log(songs[2]);
-   console.log(songs[2].Artist);
-   console.log(songs[2]["Track Name"]);
- 
-  console.log("Status: " + response.status);
+   // update the DOM 
+    showSong()
+}
 
-   artistDisplay1.textContent = songs[7].Artist;
-   trackNameDisplay1.textContent = songs[7]["Track Name"];
 
-} 
+
 
 
 songButton.addEventListener("click", function(){
    loadSongs();
 }
 );
+
+
+ nextBtn.addEventListener("click", function(){
+    // Add counter pattern
+    index = index + 1;
+    // Update the DOM 
+       showSong()
+ })
+
+  
+ // Updating the DOM function 
+      function showSong() {
+      let song = songs[index];
+      artistDisplay1.textContent = song.Artist;
+      trackNameDisplay1.textContent = song["Track Name"];
+      // Keep track of the song
+      trackCount.textContent = (index + 1) + " of " + songs.length;
+}
+
+   prevBtn.addEventListener("click", function(){
+     // Add counter pattern
+    index = index - 1;
+    // Update the DOM 
+       showSong()
+  })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // function showSong() {
+// //   let song = songs[index];
+
+//   document.getElementById("track-name").textContent = song["Track Name"];
+//   document.getElementById("track-facts").textContent = "#" + song.Position + " — " + song.Artist;
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*  Search for a song  */
+//   let searchInput = document.getElementById("input-id");
+//   let searchButton = document.getElementById("search-button");
+
+// let findTimer;
+
+
+// async function findSongs() {
+// //   let searchItem = searchInput.value;
+// //   let response = await fetch("https://student-data-api.edwardolagunju25.workers.dev/api/v1/datasets/viral-50-usa/records?limit=10&search=" + encodeURIComponent(searchItem));
+
+// //   let data = await response.json();
+// //   let songs = data.records;
+
+// //   console.log(songs);
+
+// //   if (songs.length > 0) {
+// //     let song = songs[0];    
+// //     trackNameDisplay1.textContent = song["Track Name"];
+// //     artistDisplay1.textContent = song.Artist;
+// //   } else {
+// //     // Nothing matched
+// //     trackNameDisplay1.textContent = "No songs found.";
+// //     artistDisplay1.textContent = "";
+// //   }
+  
+// //   // Wait 5 seconds, then clear the result
+// //   clearTimeout(findTimer);
+   
+// //     findTimer = setTimeout(function () {
+// //     trackNameDisplay1.textContent = "";
+// //     artistDisplay1.textContent = "";
+// //     searchInput.value = "";
+// //   }, 5000);
+// // }
+
+// // searchButton.addEventListener("click", function () {
+// //   findSongs();
+// // });
+
+
+
+
+
+// function loadSongs() {
+//   fetch("https://student-data-api.edwardolagunju25.workers.dev/api/v1/datasets/viral-50-usa/records?limit=50")
+//     .then(function (response) {
+//       return response.json();
+//     })
+//     .then(function (data) {
+
+//     });
+//      let song = songs[index];
+//      artistDisplay1.textContent = song.Artist;
+//      trackNameDisplay1.textContent = song["Track Name"];
+//     index = index + 1;
+// }

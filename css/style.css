@@ -1,0 +1,20 @@
+
+.nextbak  {
+    display: flex;
+    justify-content:space-between;
+}
+
+
+#head-playlist{
+    text-align: center;
+}
+
+#par-id{
+    text-align: center;
+}
+
+
+#song-button{
+    display: block;
+    margin: 0 auto 2rem;
+}
