@@ -1,13 +1,8 @@
 
-body {
-    background: #121212;
-}
-
 
 .card{
-    /* background-color:#524747; */
-    background: #181818;
-    border: 1px solid #282828;
+    background-color:#3e4352;
+  
 }
 
 .card,
@@ -26,6 +21,10 @@ body {
 #song-button{
     display: block;
     margin: 0 auto 2rem;
+}
+
+#song-button:hover{
+    background: #293044;  
 }
 
 #head-playlist{
@@ -50,20 +49,9 @@ body {
 }
 
 
-#back-button,
-#next-button{
-  background: #374b3e;
-}
-
-#top-button,
-#random-button{
-   background: #293044;
-    /* border: 1.0px solid #6c5ce7; */
-}
-
 #top-button:hover,
 #random-button:hover{
-   background: #506457; 
+   background: #293044;
 }
 
 
