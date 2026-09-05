@@ -6,6 +6,8 @@ console.log("Hello World!");
  let nextBtn = document.getElementById("next-button");
  let prevBtn = document.getElementById("back-button");
  let trackCount = document.getElementById("track-count");
+ let topBtn = document.getElementById("top-button");
+ let randomBtn = document.getElementById("random-button");
  
 // declare song variable
 let songs = [];
@@ -14,8 +16,7 @@ let songs = [];
 let index = 0;
 
 
-
- async function loadSongs() {
+async function loadSongs() {
   let response = await fetch("https://student-data-api.edwardolagunju25.workers.dev/api/v1/datasets/viral-50-usa/records?limit=50");
   let data = await response.json();
   songs = data.records;
@@ -25,42 +26,57 @@ let index = 0;
 }
 
 
-
-
-
 songButton.addEventListener("click", function(){
    loadSongs();
 }
 );
 
-
- nextBtn.addEventListener("click", function(){
+// Next button
+nextBtn.addEventListener("click", function(){
     // Add counter pattern
     index = index + 1;
+    
+    // Wrap the ends of stopping
+     if (index > songs.length - 1) {
+        index = 0;
+    }
     // Update the DOM 
        showSong()
  })
 
   
  // Updating the DOM function 
-      function showSong() {
-      let song = songs[index];
-      artistDisplay1.textContent = song.Artist;
-      trackNameDisplay1.textContent = song["Track Name"];
-      // Keep track of the song
-      trackCount.textContent = (index + 1) + " of " + songs.length;
+   function showSong() {
+   let song = songs[index];
+   artistDisplay1.textContent = song.Artist;
+   trackNameDisplay1.textContent = song["Track Name"];
+   // Keep track of the song
+   trackCount.textContent = (index + 1) + " of " + songs.length;
 }
 
-   prevBtn.addEventListener("click", function(){
-     // Add counter pattern
-    index = index - 1;
-    // Update the DOM 
-       showSong()
+// Back button 
+prevBtn.addEventListener("click", function(){
+   // Add counter pattern
+   index = index - 1;
+
+   // Wrap the ends of stopping
+     if (index <  0) {
+        index = songs.length -1 ;
+      }
+   // Update the DOM 
+      showSong()
+  })
+
+  topBtn.addEventListener("click", function(){
+   index = 0;
+   showSong()
   })
 
 
-
-
+ randomBtn.addEventListener("click", function(){
+   index = Math.floor(Math.random() * songs.length);
+   showSong()
+ })
 
 
 

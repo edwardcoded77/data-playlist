@@ -1,9 +1,32 @@
 
+body {
+    background: #121212;
+}
+
+
+.card{
+    /* background-color:#524747; */
+    background: #181818;
+    border: 1px solid #282828;
+}
+
+.card,
+.nextbak {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .nextbak  {
     display: flex;
     justify-content:space-between;
+    
 }
 
+#song-button{
+    display: block;
+    margin: 0 auto 2rem;
+}
 
 #head-playlist{
     text-align: center;
@@ -14,8 +37,37 @@
     text-align: center;
 }
 
-
-#song-button{
+.chart-card,
+#top-button 
+#random-button{
     display: block;
     margin: 0 auto 2rem;
+}
+
+.chart-card {
+    display:flex;
+    justify-content:space-evenly;
+}
+
+
+#back-button,
+#next-button{
+  background: #374b3e;
+}
+
+#top-button,
+#random-button{
+   background: #293044;
+    /* border: 1.0px solid #6c5ce7; */
+}
+
+#top-button:hover,
+#random-button:hover{
+   background: #506457; 
+}
+
+
+#back-button:hover,
+#next-button:hover{
+   background: #293044;  
 }
