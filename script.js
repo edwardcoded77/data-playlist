@@ -123,7 +123,7 @@ songButton.addEventListener("click", function(){
     
     // Check our array
     console.log("Favorites:", favorites);
-});
+})
  
 
 
