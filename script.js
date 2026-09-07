@@ -8,6 +8,9 @@ console.log("Hello World!");
  let trackCount = document.getElementById("track-count");
  let topBtn = document.getElementById("top-button");
  let randomBtn = document.getElementById("random-button");
+ let saveBtn = document.getElementById("save-button");
+ let favsCount = document.getElementById("favs-count");
+//  let favList  = document.getElementById("favorites-list");
  
 // declare song variable
 let songs = [];
@@ -15,6 +18,9 @@ let songs = [];
 // Add counter variable
 let index = 0;
 
+
+// Add save counter variable
+let favorites = [];
 
 async function loadSongs() {
   let response = await fetch("https://student-data-api.edwardolagunju25.workers.dev/api/v1/datasets/viral-50-usa/records?limit=50");
@@ -31,8 +37,9 @@ songButton.addEventListener("click", function(){
 }
 );
 
+
 // Next button
-nextBtn.addEventListener("click", function(){
+    nextBtn.addEventListener("click", function(){
     // Add counter pattern
     index = index + 1;
     
@@ -47,21 +54,22 @@ nextBtn.addEventListener("click", function(){
   
  // Updating the DOM function 
    function showSong() {
-   let song = songs[index];
-   artistDisplay1.textContent = song.Artist;
-   trackNameDisplay1.textContent = song["Track Name"];
+   let song = songs[index];                               // Give me the song that is currently being displayed
+   artistDisplay1.textContent = song.Artist;             // display an artist 
+   trackNameDisplay1.textContent = song["Track Name"]; // display track name
+   
    // Keep track of the song
-   trackCount.textContent = (index + 1) + " of " + songs.length;
+   trackCount.textContent = "Track " + (index + 1) + " of " + songs.length;
 }
 
 // Back button 
-prevBtn.addEventListener("click", function(){
+    prevBtn.addEventListener("click", function(){
    // Add counter pattern
    index = index - 1;
 
    // Wrap the ends of stopping
      if (index <  0) {
-        index = songs.length -1 ;
+        index = songs.length - 1 ;
       }
    // Update the DOM 
       showSong()
@@ -78,6 +86,57 @@ prevBtn.addEventListener("click", function(){
    showSong()
  })
 
+  
+
+ saveBtn.addEventListener("click", function () {
+
+    // Get the song we're currently viewing
+       let song = songs[index];
+
+    // Check if this song is already saved
+      let  alreadyFavorite = favorites.some(
+        favorite => favorite.id === song.id
+    );
+
+    // Don't save the same song twice
+    if (alreadyFavorite) {
+        return;
+    }
+
+    // Don't allow more than 5
+    if (favorites.length >= 5) {
+       return;
+    }
+
+    // Add the song
+    favorites.push(song);
+   
+   // Save favorites to localStorage
+    localStorage.setItem("favorites", JSON.stringify(favorites)
+    );
+
+    // Update the screen
+    favsCount.textContent = `Favorites tracks : ${favorites.length}/5`;
+
+    
+   //  displayFavs();
+    
+    // Check our array
+    console.log("Favorites:", favorites);
+});
+ 
+
+
+//   function displayFavs(){
+//    favList.innerHTML = "" ;  // Make empty list
+//      favorites.forEach(function (song) { // loop thru favorites array 
+//       let favoriteItem = document.createElement("p"); // create paragraph 
+//      favoriteItem.textContent = song["Track Name"] + " - " + song.Artist;
+//         favList.appendChild(favoriteItem);
+//     });
+//    }
+
+  
 
 
 
@@ -87,17 +146,6 @@ prevBtn.addEventListener("click", function(){
 
 
 
-
-
-
-
-
-// // function showSong() {
-// //   let song = songs[index];
-
-//   document.getElementById("track-name").textContent = song["Track Name"];
-//   document.getElementById("track-facts").textContent = "#" + song.Position + " — " + song.Artist;
-// }
 
 
 

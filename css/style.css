@@ -1,26 +1,44 @@
-
+body{
+    background: #181d24;
+    min-height: 100vh;
+    
+}
 
 .card{
-    background-color:#393a3b;
+    width: 90%;
+    min-height: 200px;
+    border: 1px solid #2d3442;
+    border-radius: 20px;
+    background-image: url("../artist02.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll; 
+    transform: translateY(-70px); 
   
 }
 
-.card,
-.nextbak {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-}
 
-.nextbak  {
-    display: flex;
-    justify-content:space-between;
+
+.playlist-container {
+    width: 600px;
+    height: 880px;
+    background: white;
+    border-radius: 20px;
+    margin: 0 auto;
+    background-image: url("../trackName.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     
 }
+
 
 #song-button{
     display: block;
     margin: 0 auto 2rem;
+    transform: translateY(-50px);
 }
 
 #song-button:hover{
@@ -29,33 +47,117 @@
 
 #head-playlist{
     text-align: center;
+    color: #1c202b;
+    font-size:30px;
+    font-weight:bold;
+    padding: 10px;
+    margin-top: 0px;
+
 }
 
 
 #par-id{
     text-align: center;
+    color: #020303;
+    font-weight:bold;
+     margin: 0 auto 2rem;
+    transform: translateY(-30px);
 }
 
-.chart-card,
-#top-button 
-#random-button{
-    display: block;
-    margin: 0 auto 2rem;
+
+
+.fa-music {
+    color: #8b8686;
+    font-size: 1rem;
 }
 
-.chart-card {
-    display:flex;
-    justify-content:space-evenly;
+.fa-list {
+    font-size: 0.8rem;
 }
 
+.fa-heart {
+   border: none;
+  font-size: 20px;
+}
 
 #top-button:hover,
-#random-button:hover{
-   background: #293044;
-}
-
-
+#random-button:hover,
 #back-button:hover,
-#next-button:hover{
-   background: #293044;  
+#next-button:hover,
+#save-button:hover{
+   background: #293044;
+   transform: translateY(-2px); 
+   
+  
 }
+
+.button-container {
+    width: min(90%,320px);
+    min-height: 50px;
+    padding: 25px;
+    border-radius: 35px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    gap: 8px;
+    margin: 0 auto;
+    background:#cec0c0;
+    transform: translateY(32px); 
+}
+
+#back-button,
+#next-button,
+#random-button,
+#top-button,
+#save-button {
+    margin: 0;
+    font-size: 18px;
+}
+
+
+#back-button,
+#next-button {
+    width: 56px;
+    height: 56px;
+    padding: 0;
+    border-radius: 50%;
+}
+
+#random-button,
+#top-button,
+#save-button {
+    width: 56px;
+    height: 56px;
+    padding: 0;
+   border-radius: 8px;
+}
+
+
+#save-button,
+#top-button, 
+#back-button,
+#next-button,
+#random-button {
+    margin-top: 20px;
+}
+
+
+
+
+.count-container{
+    display: flex;
+    align-items: center;
+    justify-content:space-evenly;
+    gap: 8px;
+    margin: 0 auto;
+
+} 
+
+#track-count,
+#favs-count{
+    text-align:center;
+    color: #212325;
+    font-weight:bold;
+    transform: translateY(-50px);
+} 
