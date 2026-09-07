@@ -10,7 +10,8 @@ console.log("Hello World!");
  let randomBtn = document.getElementById("random-button");
  let saveBtn = document.getElementById("save-button");
  let favsCount = document.getElementById("favs-count");
-//  let favList  = document.getElementById("favorites-list");
+ let favBtn  = document.getElementById("favs-button");
+ let favList = document.getElementById("favs-list");
  
 // declare song variable
 let songs = [];
@@ -111,33 +112,61 @@ songButton.addEventListener("click", function(){
     // Add the song
     favorites.push(song);
    
-   // Save favorites to localStorage
-    localStorage.setItem("favorites", JSON.stringify(favorites)
-    );
+   // // Save favorites to localStorage
+   //  localStorage.setItem("favorites", JSON.stringify(favorites)
+   //  );
+   
+   //  let savedFavorites = localStorage.getItem("favorites");
+
+   // if (savedFavorites) {
+   //  favorites = JSON.parse(savedFavorites);
+   // }
 
     // Update the screen
     favsCount.textContent = `Favorites tracks : ${favorites.length}/5`;
-
-    
-   //  displayFavs();
     
     // Check our array
     console.log("Favorites:", favorites);
 })
  
 
+favBtn.addEventListener("click", function(){
+  displayFavs();
 
-//   function displayFavs(){
-//    favList.innerHTML = "" ;  // Make empty list
-//      favorites.forEach(function (song) { // loop thru favorites array 
-//       let favoriteItem = document.createElement("p"); // create paragraph 
-//      favoriteItem.textContent = song["Track Name"] + " - " + song.Artist;
-//         favList.appendChild(favoriteItem);
-//     });
-//    }
+})
+  
+function displayFavs(){
+   // Make empty list
+      favList.innerHTML = "" ;  
+   // loop thru favorites array
+     favorites.forEach(function (song) { 
+      let favoriteSong = document.createElement("p"); 
+     favoriteSong.textContent = song["Track Name"] + " - " + song.Artist;
+        favList.appendChild(favoriteSong);
+    });
+   }
 
   
+// #favs-list {
+//    width: 90%;
+//     max-width: 600px;
+//     margin: 20px auto;
+//     padding: 20px;
+//     background: rgba(255, 255, 255, 0.85);
+//     border-radius: 20px;
+//     box-sizing: border-box;
+// }
 
+// #favorites-list h3 {
+//     margin-top: 0;
+//     text-align: center;
+// }
+
+// #favorites-list p {
+//     margin: 10px 0;
+//     padding: 8px 0;
+//     border-bottom: 1px solid #ddd;
+// }
 
 
 

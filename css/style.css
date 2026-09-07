@@ -14,14 +14,14 @@ body{
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: scroll; 
-    transform: translateY(-70px); 
+    transform: translateY(-90px); 
   
 }
 
 
 
 .playlist-container {
-    width: 600px;
+    width: 800px;
     height: 880px;
     background: white;
     border-radius: 20px;
@@ -30,7 +30,7 @@ body{
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: scroll;
     
 }
 
@@ -71,9 +71,7 @@ body{
     font-size: 1rem;
 }
 
-.fa-list {
-    font-size: 0.8rem;
-}
+
 
 .fa-heart {
    border: none;
@@ -91,21 +89,6 @@ body{
   
 }
 
-.button-container {
-    width: min(90%,320px);
-    min-height: 50px;
-    padding: 25px;
-    border-radius: 35px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-around;
-    gap: 8px;
-    margin: 0 auto;
-    background:#cec0c0;
-    transform: translateY(32px); 
-}
-
 #back-button,
 #next-button,
 #random-button,
@@ -114,6 +97,8 @@ body{
     margin: 0;
     font-size: 18px;
 }
+
+
 
 
 #back-button,
@@ -159,5 +144,62 @@ body{
     text-align:center;
     color: #212325;
     font-weight:bold;
-    transform: translateY(-50px);
+    transform: translateY(-70px);
 } 
+
+
+.ButFav {
+    display: flex;
+    justify-content:center;
+    align-items: flex-start;
+    gap: 40px;
+    width: 100%;
+
+}
+/* Left and right boxes */
+.button-container,
+.favs-container {
+    width: 320px;
+    min-height: 250px;
+    box-sizing: border-box;
+    border-radius: 30px;
+}
+
+/* Button controls */
+.button-container {
+    padding: 23px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    gap: 8px;
+    /* background: rgba(24, 21, 21, 0.8); */
+    margin: 0;
+    transform: translateY(-90px);
+}
+
+/* Favorites box */
+.favs-container {
+    min-height: 180px;
+    margin: 0;
+    padding: 1rem;
+    font-size: 0.8rem;
+    box-sizing: border-box;
+    font-weight: bold;
+    /* overflow-wrap: anywhere; */
+    /* background: rgba(24, 21, 21, 0.8); */
+    transform: translateY(-120px);
+}
+
+
+/* Favorites button */
+ #favs-button {
+  margin-left: 43px;
+  margin-top: 60px;
+   
+} 
+
+#favs-button:hover {
+    background: #293044;
+   transform: translateY(-2px);
+}
