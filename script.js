@@ -23,6 +23,8 @@ let index = 0;
 // Add save counter variable
 let favorites = [];
 
+let findTimer;
+
 async function loadSongs() {
   let response = await fetch("https://student-data-api.edwardolagunju25.workers.dev/api/v1/datasets/viral-50-usa/records?limit=50");
   let data = await response.json();
@@ -61,6 +63,13 @@ songButton.addEventListener("click", function(){
    
    // Keep track of the song
    trackCount.textContent = "Track " + (index + 1) + " of " + songs.length;
+
+
+    // Wait 30 seconds, then clear the result
+    clearTimeout(findTimer);
+    findTimer= setTimeout(function () {
+    location.reload();
+  }, 30000);
 }
 
 // Back button 
@@ -95,12 +104,12 @@ songButton.addEventListener("click", function(){
        let song = songs[index];
 
     // Check if this song is already saved
-      let  alreadyFavorite = favorites.some(
+      let  isFavorite = favorites.some(
         favorite => favorite.id === song.id
     );
 
     // Don't save the same song twice
-    if (alreadyFavorite) {
+    if (isFavorite) {
         return;
     }
 
@@ -112,7 +121,7 @@ songButton.addEventListener("click", function(){
     // Add the song
     favorites.push(song);
    
-   // // Save favorites to localStorage
+   // Save favorites to localStorage
    //  localStorage.setItem("favorites", JSON.stringify(favorites)
    //  );
    
@@ -122,7 +131,9 @@ songButton.addEventListener("click", function(){
    //  favorites = JSON.parse(savedFavorites);
    // }
 
-    // Update the screen
+    
+   
+   // Update the screen
     favsCount.textContent = `Favorites tracks : ${favorites.length}/5`;
     
     // Check our array
@@ -146,27 +157,6 @@ function displayFavs(){
     });
    }
 
-  
-// #favs-list {
-//    width: 90%;
-//     max-width: 600px;
-//     margin: 20px auto;
-//     padding: 20px;
-//     background: rgba(255, 255, 255, 0.85);
-//     border-radius: 20px;
-//     box-sizing: border-box;
-// }
-
-// #favorites-list h3 {
-//     margin-top: 0;
-//     text-align: center;
-// }
-
-// #favorites-list p {
-//     margin: 10px 0;
-//     padding: 8px 0;
-//     border-bottom: 1px solid #ddd;
-// }
 
 
 
@@ -253,16 +243,4 @@ function displayFavs(){
 
 
 
-// function loadSongs() {
-//   fetch("https://student-data-api.edwardolagunju25.workers.dev/api/v1/datasets/viral-50-usa/records?limit=50")
-//     .then(function (response) {
-//       return response.json();
-//     })
-//     .then(function (data) {
 
-//     });
-//      let song = songs[index];
-//      artistDisplay1.textContent = song.Artist;
-//      trackNameDisplay1.textContent = song["Track Name"];
-//     index = index + 1;
-// }
