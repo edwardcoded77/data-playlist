@@ -26,7 +26,7 @@ let favorites = [];
 let findTimer;
 
 async function loadSongs() {
-  let response = await fetch("https://student-data-api.edwardolagunju25.workers.dev/api/v1/datasets/viral-50-usa/records?limit=50");
+  let response = await fetch("https://studentedward-data-api.edwardolagunju25.workers.dev/api/v1/datasets/viral-50-usa/records?limit=50");
   let data = await response.json();
   songs = data.records;
 
